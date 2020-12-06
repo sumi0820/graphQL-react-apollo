@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Launches from "./components/Launches";
+import Launch from "./components/Launch";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>GraphQL Test Site</h1>
+
+      <Switch>
+        <Route exact path="/" component={Launches} />
+        <Route path="/launch/:flight_number" component={Launch} />
+      </Switch>
     </div>
   );
 }
